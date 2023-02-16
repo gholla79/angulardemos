@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html ng-app="myFirstApp" lang="en" dir="ltr">
   <head>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
     <meta charset="utf-8">
     <title>Hello!</title>
   </head>
   <body>
-    <h1>hello</h1>
+    <div ng-controller="myFirstController">
+      <h1>hello {{name}}</h1>
+        <input type="text" ng-model="name">
+      {{sayName()}} is {{length()}} characters long.
+    </div>
   </body>
 </html>

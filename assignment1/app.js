@@ -7,17 +7,23 @@
   LunchCheckController.$inject = ['$scope','$filter'];
   function LunchCheckController($scope, $filter){
     $scope.foodStr="";
-    $scope.message= "Waiting to see what all you ate..";
+    $scope.message= "";
+    $scope.footNote ="";
     $scope.checkFoodItems = function () {
-      var foodCount = $scope.foodStr.split(',').filter(word => word.length > 0).length;
-      $scope.message = "Your are eating " + foodCount + " food items. ";
+      $scope.footNote ="";
+      var foodCount = $scope.foodStr.split(',').filter(word => word.trim().length > 0).length;
+      //$scope.message = "Your are eating " + foodCount + " food items. ";
       if (foodCount <=3 ) {
         if(foodCount==0)
-          $scope.message += "Please eat something.";
+          $scope.message = "Please enter data first.";
           else
-          $scope.message += "Good!";
+          $scope.message = "Enjoy!";
         } else {
-          $scope.message += "Too much!";
+          $scope.message = "Too much!";
+        };
+
+        if(foodCount < $scope.foodStr.split(',').length){
+          $scope.footNote = " Note: empty items like ,, or , , are not counted.";
         }
     };
   }

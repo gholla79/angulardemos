@@ -13,7 +13,6 @@
     $scope.checkFoodItems = function () {
       $scope.footNote ="";
       $scope.foodCount = $scope.foodStr.split(',').filter(word => word.trim().length > 0).length;
-      //$scope.message = "Your are eating " + foodCount + " food items. ";
       $scope.status="success";
 
       if ($scope.foodCount <=3 ) {
